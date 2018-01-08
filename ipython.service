@@ -1,0 +1,16 @@
+
+[Unit]
+Description=IPython notebook
+
+[Service]
+Type=simple
+Environment=PYTHONPATH=/vagrant_shared/
+RestartSec=10
+Restart=always
+PIDFile=/var/run/ipython-notebook.pid
+ExecStart=/usr/local/bin/jupyter notebook --config=/vagrant_shared/jupyter_notebook_config.py --notebook-dir=/vagrant_shared/notebooks/ --no-browser --ip=0.0.0.0
+WorkingDirectory=/vagrant_shared/notebooks
+User=vagrant
+
+[Install]
+WantedBy=multi-user.target

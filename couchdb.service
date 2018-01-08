@@ -1,0 +1,11 @@
+[Unit]
+Description=Couchdb
+After=network.target
+
+[Service]
+User=root
+ExecStart=/usr/local/bin/couchdb -o /dev/stdout -e /dev/stderr
+
+
+[Install]
+WantedBy=multi-user.target
